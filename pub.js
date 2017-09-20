@@ -21,3 +21,4 @@ function show() {
 }
 
 window.addEventListener('hashchange', show)
+window.addEventListener("load", show)
