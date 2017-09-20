@@ -1,5 +1,6 @@
 var converter = new showdown.Converter()
-converter.setOption('tables', true)
+// converter.setOption('tables', true)
+converter.setFlavor('github')
 
 function md2html(mdText) {
 //  var mdText = $('#mdText').html()
