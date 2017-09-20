@@ -8,7 +8,7 @@ function md2html(mdText) {
   $('#mdHtml').html(mdHtml)
 }
 
-window.addEventListener('hashchange', function (event) {
+function show() {
   var file = window.location.hash.substring(1)
   console.log('file=', file)
   $.ajax({
@@ -18,4 +18,6 @@ window.addEventListener('hashchange', function (event) {
       md2html(text)
     }
   })
-})
+}
+
+window.addEventListener('hashchange', show)
