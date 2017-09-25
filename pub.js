@@ -6,7 +6,8 @@ function md2html(mdText) {
 //  var mdText = $('#mdText').html()
   var mdHtml = converter.makeHtml(mdText)
   // console.log('mdText=', mdText)
-  $('#mdHtml').html(mdHtml)
+  // $('#mdHtml').html(mdHtml)
+  document.getElementById('mdHtml').innerHTML = mdHtml
 }
 
 function show() {
@@ -15,6 +16,7 @@ function show() {
   const req = new Request(file, {method: 'GET', cache: 'reload'})
   fetch(req).then(function(response) {
     document.getElementById('div1').innerHTML = response.text()
+    md2html(response.text())
   }).catch(function(err) {
     alert(file + ' load error !')
   })
