@@ -15,9 +15,10 @@ function show() {
   console.log('file=', file)
   const req = new Request('./' + file, {method: 'GET', cache: 'reload'})
   fetch(req).then(function(response) {
-    console.log('response.text() = '+ response.text())
-//    document.getElementById('div1').innerHTML = response.text()
-    md2html(response.text())
+    return response.text().then(function(text) {
+      console.log('response.text() = '+ text)
+      md2html(text)
+    });
   }).catch(function(err) {
     alert(file + ' load error ! ' + err.message)
   })
