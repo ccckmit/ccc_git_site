@@ -13,12 +13,12 @@ function md2html(mdText) {
 function show() {
   var file = window.location.hash.substring(1)
   console.log('file=', file)
-  const req = new Request(file, {method: 'GET', cache: 'reload'})
+  const req = new Request('./' + file, {method: 'GET', cache: 'reload'})
   fetch(req).then(function(response) {
     document.getElementById('div1').innerHTML = response.text()
     md2html(response.text())
   }).catch(function(err) {
-    alert(file + ' load error !')
+    alert(file + ' load error ! ' + error.message)
   })
   
   /*  
