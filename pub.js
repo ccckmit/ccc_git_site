@@ -18,7 +18,7 @@ function show() {
     document.getElementById('div1').innerHTML = response.text()
     md2html(response.text())
   }).catch(function(err) {
-    alert(file + ' load error ! ' + error.message)
+    alert(file + ' load error ! ' + err.message)
   })
   
   /*  
