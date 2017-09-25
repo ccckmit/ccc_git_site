@@ -12,6 +12,14 @@ function md2html(mdText) {
 function show() {
   var file = window.location.hash.substring(1)
   console.log('file=', file)
+  const req = new Request(URL, {method: 'GET', cache: 'reload'})
+  fetch(req).then(function(response) {
+    document.getElementById('div1').innerHTML = response.text()
+  }).catch(function(err) {
+    alert(file + ' load error !')
+  })
+  
+  /*  
   $.ajax({
     url: file,
     success: function (text) {
@@ -19,6 +27,7 @@ function show() {
       md2html(text)
     }
   })
+*/  
 }
 
 window.addEventListener('hashchange', show)
